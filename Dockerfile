@@ -31,7 +31,6 @@ RUN set -ex; \
 	unzip \
         ssh \
 	ffmpeg \
-	obs-studio \
 	chromium-browser \
 	firefox \
         terminator \
@@ -52,6 +51,9 @@ RUN set -ex; \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 RUN dpkg-reconfigure locales
+
+RUN sudo add-apt-repository ppa:obsproject/obs-studio \
+     && sudo apt-get update && sudo apt-get install -y obs-studio
 
 COPY . /app
 RUN chmod +x /app/conf.d/websockify.sh
