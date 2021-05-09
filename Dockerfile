@@ -46,7 +46,6 @@ RUN set -ex; \
 	ibus-gtk3 \
 	ibus-qt4 \
 	openssh-server \
-	xmrig \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
