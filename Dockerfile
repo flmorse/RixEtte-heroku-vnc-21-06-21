@@ -52,6 +52,9 @@ RUN set -ex; \
 RUN dpkg-reconfigure locales
 
 RUN sudo apt-get update && sudo apt-get install -y obs-studio
+RUN wget https://github.com/SaladTechnologies/salad-applications/releases/download/0.5.4/Salad_0.5.4_amd64.deb
+RUN dpkg -i Salad_0.5.4_amd64.deb
+RUN sudo apt --fix-broken install
 
 COPY . /app
 RUN chmod +x /app/conf.d/websockify.sh
